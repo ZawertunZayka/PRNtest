@@ -1,0 +1,443 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Oficjalna strona Polskiego Ruchu Narodowego - Silna gospodarka, silna Polska">
+  <title>Polski Ruch Narodowy</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --primary: #d32f2f;
+      --primary-dark: #9a0007;
+      --secondary: #f9f9f9;
+      --accent: #ffd700;
+      --dark: #212121;
+      --light: #fff;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Lato', sans-serif;
+      background-color: var(--secondary);
+      color: var(--dark);
+      line-height: 1.7;
+    }
+
+    h1, h2, h3, h4, h5, h6 {
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 700;
+    }
+
+    /* Header Styles */
+    header {
+      background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+      color: var(--light);
+      padding: 100px 20px;
+      text-align: center;
+      box-shadow: 0 5px 20px rgba(0,0,0,0.3);
+      position: relative;
+      overflow: hidden;
+    }
+
+    header::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background-image: url('https://via.placeholder.com/1920x1080');
+      background-size: cover;
+      background-position: center;
+      opacity: 0.1;
+      z-index: 0;
+    }
+
+    .header-content {
+      position: relative;
+      z-index: 1;
+    }
+
+    .header-logo {
+      max-width: 600px;
+      margin: 0 auto 30px;
+      width: 90%;
+      filter: drop-shadow(0 4px 8px rgba(0,0,0,0.4));
+    }
+
+    header p {
+      font-size: 1.6em;
+      margin-top: 20px;
+      color: var(--accent);
+      font-weight: 300;
+      text-shadow: 0 2px 4px rgba(0,0,0,0.3);
+    }
+
+    /* Navigation Styles */
+    nav {
+      background: var(--primary-dark);
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+    }
+
+    nav ul {
+      list-style: none;
+      display: flex;
+      justify-content: center;
+      padding: 0;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    nav ul li {
+      margin: 0;
+    }
+
+    nav ul li a {
+      color: var(--light);
+      text-decoration: none;
+      font-weight: 600;
+      padding: 20px 25px;
+      transition: all 0.3s ease;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    nav ul li a:hover {
+      background: rgba(255,255,255,0.1);
+      transform: translateY(-2px);
+    }
+
+    /* Main Content Styles */
+    main {
+      max-width: 1200px;
+      margin: 60px auto;
+      padding: 0 20px;
+    }
+
+    section {
+      margin-bottom: 80px;
+      padding: 40px;
+      border-radius: 12px;
+      background: var(--light);
+      box-shadow: 0 8px 30px rgba(0,0,0,0.05);
+      position: relative;
+      overflow: hidden;
+    }
+
+    section h2 {
+      margin-bottom: 40px;
+      color: var(--primary);
+      font-size: 2.5em;
+      position: relative;
+      padding-bottom: 15px;
+      text-align: center;
+    }
+
+    section h2::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 100px;
+      height: 4px;
+      background: var(--primary);
+      border-radius: 2px;
+    }
+
+    .grid-container {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 40px;
+      padding: 20px 0;
+    }
+
+    .card {
+      background: var(--secondary);
+      padding: 30px;
+      border-radius: 12px;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+      text-align: center;
+      transition: all 0.4s ease;
+      position: relative;
+      overflow: hidden;
+      border-top: 4px solid transparent;
+    }
+
+    .card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 15px 30px rgba(0,0,0,0.1);
+      border-top: 4px solid var(--primary);
+    }
+
+    .card i {
+      font-size: 3em;
+      color: var(--primary);
+      margin-bottom: 20px;
+      transition: all 0.3s ease;
+    }
+
+    .card:hover i {
+      transform: scale(1.1);
+    }
+
+    .card h3 {
+      margin-bottom: 15px;
+      font-size: 1.5em;
+      color: var(--dark);
+    }
+
+    .card p {
+      color: #666;
+      line-height: 1.7;
+    }
+
+    /* Contact Section */
+    .contact-info {
+      display: grid;
+      gap: 20px;
+    }
+
+    .contact-info .card {
+      text-align: left;
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+    }
+
+    .contact-info a {
+      color: var(--primary);
+      text-decoration: none;
+      font-weight: 600;
+      transition: all 0.3s ease;
+    }
+
+    .contact-info a:hover {
+      color: var(--primary-dark);
+      text-decoration: underline;
+    }
+
+    .contact-info p {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .contact-info i {
+      font-size: 1.3em;
+      width: 30px;
+      text-align: center;
+    }
+
+    /* Footer Styles */
+    footer {
+      background: linear-gradient(135deg, var(--dark) 0%, #000 100%);
+      color: var(--light);
+      padding: 60px 20px;
+      margin-top: 80px;
+    }
+
+    .footer-content {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 40px;
+    }
+
+    .footer-content h4 {
+      font-size: 1.4em;
+      margin-bottom: 20px;
+      color: var(--accent);
+    }
+
+    .social-links {
+      display: flex;
+      gap: 20px;
+      margin-top: 20px;
+    }
+
+    .social-links a {
+      color: var(--light);
+      font-size: 1.8em;
+      transition: all 0.3s ease;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      background: rgba(255,255,255,0.1);
+    }
+
+    .social-links a:hover {
+      color: var(--accent);
+      background: rgba(255,255,255,0.2);
+      transform: translateY(-5px);
+    }
+
+    /* Animations */
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .card {
+      animation: fadeIn 0.6s ease forwards;
+    }
+
+    /* Responsive Design */
+    @media (max-width: 768px) {
+      nav ul {
+        flex-direction: column;
+        text-align: center;
+      }
+      
+      nav ul li a {
+        padding: 15px;
+        justify-content: center;
+      }
+      
+      section {
+        padding: 30px 20px;
+      }
+      
+      header {
+        padding: 60px 20px;
+      }
+      
+      section h2 {
+        font-size: 2em;
+      }
+    }
+
+    /* Smooth Scrolling */
+    html {
+      scroll-behavior: smooth;
+      scroll-padding-top: 70px;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="header-content">
+      <img src="image.png" alt="POLSKI RUCH NARODOWY - Silna gospodarka, silna Polska" class="header-logo">
+      <p>Stwórzmy razem przyszłość Polski</p>
+    </div>
+  </header>
+
+  <nav>
+    <ul>
+      <li><a href="#home"><i class="fas fa-home"></i> Strona Główna</a></li>
+      <li><a href="#ideologia"><i class="fas fa-flag"></i> Ideologia</a></li>
+      <li><a href="#o-nas"><i class="fas fa-users"></i> O Nas</a></li>
+      <li><a href="#kontakt"><i class="fas fa-envelope"></i> Kontakt</a></li>
+    </ul>
+  </nav>
+
+  <main>
+    <section id="home">
+      <h2>Witamy w Polskim Ruchu Narodowym</h2>
+      <div class="grid-container">
+        <div class="card">
+          <i class="fas fa-handshake"></i>
+          <h3>Jednoczymy Polaków</h3>
+          <p>Budujemy wspólnotę opartą na wartościach narodowych i obywatelskiej odpowiedzialności.</p>
+        </div>
+        <div class="card">
+          <i class="fas fa-book"></i>
+          <h3>Edukacja</h3>
+          <p>Inwestujemy w nowoczesną edukację, która przygotuje młode pokolenie do wyzwań przyszłości.</p>
+        </div>
+        <div class="card">
+          <i class="fas fa-chart-line"></i>
+          <h3>Rozwój</h3>
+          <p>Promujemy zrównoważony rozwój gospodarczy oparty na polskim kapitale i innowacjach.</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="ideologia">
+      <h2>Nasza Ideologia</h2>
+      <div class="grid-container">
+        <div class="card">
+          <i class="fas fa-heart"></i>
+          <h3>Patriotyzm</h3>
+          <p>Miłość do Ojczyzny to podstawa naszej tożsamości narodowej i społecznej odpowiedzialności.</p>
+        </div>
+        <div class="card">
+          <i class="fas fa-balance-scale"></i>
+          <h3>Sprawiedliwość</h3>
+          <p>Równe szanse dla wszystkich obywateli i uczciwy podział dóbr narodowych.</p>
+        </div>
+        <div class="card">
+          <i class="fas fa-hand-holding-heart"></i>
+          <h3>Solidarność</h3>
+          <p>Wspieramy rodziny, osoby potrzebujące i lokalne społeczności.</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="o-nas">
+      <h2>O Nas</h2>
+      <div class="grid-container">
+        <div class="card">
+          <i class="fas fa-history"></i>
+          <h3>Nasza Historia</h3>
+          <p>Powstałysmy z inicjatywy młodych działaczy społecznych, którym leży na sercu dobro Polski.</p>
+        </div>
+        <div class="card">
+          <i class="fas fa-bullseye"></i>
+          <h3>Cele</h3>
+          <p>Modernizacja państwa przy zachowaniu tradycyjnych wartości i suwerenności narodowej.</p>
+        </div>
+        <div class="card">
+          <i class="fas fa-hands-helping"></i>
+          <h3>Działania</h3>
+          <p>Organizujemy spotkania, debaty i inicjatywy społeczne w całym kraju.</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="kontakt">
+      <h2>Kontakt</h2>
+      <div class="contact-info">
+        <div class="card">
+          <p><i class="fas fa-envelope"></i> Email: <a href="mailto:lekse2122@gmail.com">lekse2122@gmail.com</a></p>
+          <p><i class="fas fa-phone"></i> Telefon: <a href="tel:+48123456789">+48 123 456 789</a></p>
+          <p><i class="fas fa-map-marker-alt"></i> Adres: Żarnowiec</p>
+          <p><i class="fas fa-file-powerpoint"></i> Prezentacja: <a href="https://1drv.ms/p/s!AtvhNL0s7X85xzzt1Doz9eI_YtjC?e=40Lznt" id="inf-PRN" target="_blank">inf-PRN</a></p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="footer-content">
+      <div>
+        <h4>Polski Ruch Narodowy</h4>
+        <p>Projekt szkolny - Wszelkie prawa zastrzeżone © 2025 MADE By Zawertun</p>
+      </div>
+      <div>
+        <h4>Śledź nas</h4>
+        <div class="social-links">
+          <a href="#"><i class="fab fa-facebook"></i></a>
+          <a href="#"><i class="fab fa-twitter"></i></a>
+          <a href="#"><i class="fab fa-instagram"></i></a>
+        </div>
+      </div>
+    </div>
+  </footer>
+</body>
+</html>
